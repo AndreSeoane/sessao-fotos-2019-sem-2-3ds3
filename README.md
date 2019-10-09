@@ -4,7 +4,7 @@ API desenvolvido em conjunto pela turma 3DS3 da ETEC Drª Ruth Cardoso para a au
 
 ## Instalação
 
-1. Clonar ou baixar o repositório
+1. Clonar o repositório
    ```bash
     git clone https://github.com/AndreSeoane/sessao-fotos-2019-sem-2-3ds3
     ```
@@ -22,11 +22,9 @@ API desenvolvido em conjunto pela turma 3DS3 da ETEC Drª Ruth Cardoso para a au
 5. da
 6. API.
 
-## Contribuintes
+## Contribuintes do projeto:
 
-### Lista de contribuintes para o projeto:
-
-* :cyclone: Gustavo Rocha dos Santos - [Perfil](https://github.com/Lokitodev).
+* :rocket: Gustavo Rocha dos Santos - [Perfil](https://github.com/Lokitodev).
 * :ghost: NOME - [Perfil](https://www.webfx.com/tools/emoji-cheat-sheet/).
 
 ## Licença
