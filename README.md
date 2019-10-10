@@ -1,5 +1,7 @@
 # API - Sessão de Fotos.
 
+# [Link para a documentação](https://github.com/Lokitodev/sessao-fotos-2019-sem-2-3ds3-docs)
+
 API desenvolvido em conjunto pela turma 3DS3 da ETEC Drª Ruth Cardoso para a aula de Programação Mobile II. :scream:
 
 ## Instalação
