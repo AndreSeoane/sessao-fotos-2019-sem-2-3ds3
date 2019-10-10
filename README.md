@@ -9,7 +9,7 @@ API desenvolvido em conjunto pela turma 3DS3 da ETEC Drª Ruth Cardoso para a au
 ##### **Métodos do Usuário** 
   - [x] addUsuario :thumbsup: - [Gustavo Rocha dos Santos](https://github.com/Lokitodev)
   - [ ] deleteUsuario
-  - [ ] updateUsuario teste
+  - [ ] updateUsuario
   - [x] selectUsuario (getUsuarios // getUsuarioID) :thumbsup: - [Gustavo Rocha dos Santos](https://github.com/Lokitodev)
 ##### **Métodos das Fotos** 
   - [x] addFoto :thumbsup: - [Gustavo Rocha dos Santos](https://github.com/Lokitodev)
