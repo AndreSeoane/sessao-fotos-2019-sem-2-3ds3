@@ -4,6 +4,13 @@
 
 API desenvolvido em conjunto pela turma 3DS3 da ETEC Drª Ruth Cardoso para a aula de Programação Mobile II. :scream:
 
+## Checklist
+- [x] Iniciar projeto. :thumbsup:
+- [ ] Próximas
+- [ ] etapas
+- [ ] do
+- [ ] projeto.
+  
 ## Instalação
 
 1. Clonar o repositório
