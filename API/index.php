@@ -4,6 +4,7 @@ header("Access-Control-Allow-Headers: Content-Type");
 header('Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT');
 require '../Slim/Slim.php';
 \Slim\Slim::registerAutoloader();
+date_default_timezone_set('America/Sao_Paulo');
 
 //instancie o objeto
 $app = new \Slim\Slim();
@@ -16,9 +17,12 @@ $app->get('/', function () {
 
 $app->get('/getUsuarios', 'getUsuarios');
 $app->get('/getUsuarioID/:email/:senha', 'getUsuarioID');
-$app->post('/addUsuario', 'addUsuario');
 $app->get('/getFotos/:id', 'getFotos');
-$app->post('/addFoto', 'addFoto');
+
+$app->put('/addUsuario', 'addUsuario');
+$app->put('/addTipoSessao', 'addTipoSessao');
+$app->put('/addSessao', 'addSessao');
+$app->put('/addFoto', 'addFoto');
 
 //rode a aplicação Slim 
 $app->run();
@@ -51,6 +55,18 @@ function getUsuarioID($email, $senha)
     echo "{\"usuario\":" . json_encode($usuario, JSON_PRETTY_PRINT) . "}";
 }
 
+
+function getFotos($idSessao)
+{
+    $sql        = "SELECT * FROM tb_fotos as f WHERE cd_sessao = $idSessao";
+    $stmt       = getConn()->query($sql);
+    $fotos      = $stmt->fetchAll(PDO::FETCH_OBJ);
+    foreach ($fotos as $linha => $valor) {
+        $fotos[$linha]->ds_foto = base64_encode($valor->ds_foto);
+    }
+    echo "{\"fotos\":" . json_encode($fotos, JSON_PRETTY_PRINT) . "}";
+}
+
 function addUsuario()
 {
     $request    = \Slim\Slim::getInstance()->request();
@@ -75,21 +91,52 @@ function addUsuario()
     }*/
 }
 
-function getFotos($idSessao)
+function addTipoSessao()
 {
-    $sql        = "SELECT * FROM tb_fotos as f WHERE cd_sessao = $idSessao";
-    $stmt       = getConn()->query($sql);
-    $fotos      = $stmt->fetchAll(PDO::FETCH_OBJ);
-    foreach ($fotos as $linha => $valor) {
-        $fotos[$linha]->ds_foto = base64_encode($valor->ds_foto);
-    }
-    echo "{\"fotos\":" . json_encode($fotos, JSON_PRETTY_PRINT) . "}";
+    $request = \Slim\Slim::getInstance()->request();
+
+    $tipoSessao    = json_decode($request->getBody());
+    $sql     = "INSERT INTO  tb_tipo_sessao (nm_nome, ds_descricao ) VALUES ( :nm_nome, :ds_descricao)";
+    $conn    = getConn();
+    $stmt    = $conn->prepare($sql);
+    $stmt->bindParam("nm_nome", $tipoSessao->nm_nome);
+    $stmt->bindParam("ds_descricao", $tipoSessao->ds_descricao);
+    $stmt->execute();
+    echo json_encode($tipoSessao, JSON_PRETTY_PRINT);
+    /*{
+        "nm_nome": "Nome do Tipo da Sessão",
+        "ds_descricao": "Descrição do Tipo da Sessão",
+    }*/
+}
+
+function addSessao()
+{
+    $request = \Slim\Slim::getInstance()->request();
+
+    $sessao    = json_decode($request->getBody());
+    $data = new DateTime();
+    $data = $data->format('Y-m-d H:i:s');
+    $sql     = "INSERT INTO tb_sessao_fotos (cd_usuario, cd_tipo_sessao, nm_nome, ds_descricao, dt_hora) VALUES (:cd_usuario, :cd_tipo_sessao, :nm_nome, :ds_descricao, NOW())";
+    $conn    = getConn();
+    $stmt    = $conn->prepare($sql);
+    $stmt->bindParam("cd_usuario", $sessao->cd_usuario);
+    $stmt->bindParam("cd_tipo_sessao", $sessao->cd_tipo_sessao);
+    $stmt->bindParam("nm_nome", $sessao->nm_nome);
+    $stmt->bindParam("ds_descricao", $sessao->ds_descricao);
+    $stmt->execute();
+    echo json_encode($sessao, JSON_PRETTY_PRINT);
+    /*{
+        "cd_usuario"   : "1",
+        "cd_tipo_sessao"   : "1",
+        "nm_nome": "Nome da Sessão",
+        "ds_descricao": "Descrição da Sessão"
+    }*/
 }
 
 function addFoto()
 {
     $request = \Slim\Slim::getInstance()->request();
-    
+
     $foto    = json_decode($request->getBody());
     // $foto->ds_foto = base64_decode($foto->ds_foto);
     $sql     = "INSERT INTO tb_fotos (cd_sessao, ds_foto) VALUES (:cd_sessao, :ds_foto)";
