@@ -1,17 +1,33 @@
-# API - Sessão de Fotos.
+# **API - Sessão de Fotos.**
 
-# [Link para a documentação](https://github.com/Lokitodev/sessao-fotos-2019-sem-2-3ds3-docs)
+# **[Link para a documentação](https://github.com/Lokitodev/sessao-fotos-2019-sem-2-3ds3-docs)**
 
 API desenvolvido em conjunto pela turma 3DS3 da ETEC Drª Ruth Cardoso para a aula de Programação Mobile II. :scream:
 
-## Checklist
+## **Checklist**
 - [x] Iniciar projeto. :thumbsup:
-- [ ] Próximas
-- [ ] etapas
-- [ ] do
-- [ ] projeto.
+##### **Métodos do Usuário** 
+  - [x] addUsuario :thumbsup:
+  - [ ] deleteUsuario
+  - [ ] updateUsuario
+  - [x] selectUsuario (getUsuarios // getUsuarioID) :thumbsup:
+##### **Métodos das Fotos** 
+  - [x] addFoto :thumbsup:
+  - [ ] deleteFoto
+  - [ ] updateFoto
+  - [x] selectFoto (getFotos) :thumbsup:
+##### **Métodos das Sessões** 
+  - [ ] addSessao
+  - [ ] deleteSessao
+  - [ ] updateSessao
+  - [ ] selectSessao
+##### **Métodos do Tipo Sessão** 
+  - [ ] addTipoSessao
+  - [ ] deleteTipoSessao
+  - [ ] updateTipoSessao
+  - [ ] selectTipoSessao
   
-## Instalação
+## **Instalação**
 
 1. Clonar o repositório
    ```bash
@@ -22,7 +38,7 @@ API desenvolvido em conjunto pela turma 3DS3 da ETEC Drª Ruth Cardoso para a au
 4. Adicionar os arquivos restantes da API na hospedagem.
 5. Efetuar testes na API a seguir.
 
-## Uso
+## **Uso**
 
 1. Pontos
 2. chaves
@@ -31,10 +47,10 @@ API desenvolvido em conjunto pela turma 3DS3 da ETEC Drª Ruth Cardoso para a au
 5. da
 6. API.
 
-## Contribuintes do projeto:
+## **Contribuintes do projeto:**
 
 * :rocket: Gustavo Rocha dos Santos - [Perfil](https://github.com/Lokitodev).
 * :ghost: NOME - [Perfil](https://www.webfx.com/tools/emoji-cheat-sheet/).
 
-## Licença
+## **Licença**
 [MIT](https://choosealicense.com/licenses/mit/)
