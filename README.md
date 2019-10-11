@@ -23,7 +23,7 @@ API desenvolvido em conjunto pela turma 3DS3 da ETEC Drª Ruth Cardoso para a au
   - [ ] selectSessao
 ##### **Métodos do Tipo Sessão** 
   - [x] addTipoSessao :thumbsup: - [Gustavo Rocha dos Santos](https://github.com/Lokitodev)
-  - [?] deleteTipoSessao
+  - [ ] deleteTipoSessao
   - [ ] updateTipoSessao
   - [ ] selectTipoSessao
   
